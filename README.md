@@ -1,4 +1,4 @@
-# dockerlamp
+# Latest-LAMP-Docker
 
 Dockerfile for latest lamp based on ubuntu
 
