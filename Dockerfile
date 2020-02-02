@@ -16,9 +16,10 @@ RUN echo "starting install lamp..."\
 	&& a2disconf other-vhosts-access-log \
 	&& sed -i 's/ErrorLog/#ErrorLog/' /etc/apache2/sites-available/000-default.conf \
 	&& sed -i 's/CustomLog/#CustomLog/' /etc/apache2/sites-available/000-default.conf \
+	&& sed -i 's/ErrorLog.*/ErrorLog \/dev\/null/' /etc/apache2/apache2.conf \
 	&& sed -i 's/log_errors = On/log_errors = Off/' /etc/php/*/apache2/php.ini \
 	&& sed -i 's/log_error/#log_error/' /etc/mysql/mysql.conf.d/mysqld.cnf \
-	&& sed -i 's/;open_basedir =/open_basedir = \/var\/www\//' /etc/php/*/apache2/php.ini \
+	&& sed -i 's/;open_basedir =/open_basedir = \/var\/www\/:\/tmp\//' /etc/php/*/apache2/php.ini \
 	&& echo "hello whirwlind.<br> Security Latest Lamp Docker." > /var/www/html/index.html \
 	&& chmod +x start.sh
 
