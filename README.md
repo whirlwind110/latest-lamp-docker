@@ -18,14 +18,12 @@ docker run -d -p 80:80 lamp:latest
 
 install some useful php extensions
 
-hidden apache vhost access and error log
+set php open_basedir as /var/www
 
-hidden mysql log
-
-hidden php log
+close php mysql apache log
 
 enable apache rewrite
 
-remove apache index
+disable apache directory index
 
 
