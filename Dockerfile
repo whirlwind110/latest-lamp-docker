@@ -1,12 +1,11 @@
-# Base images 
 FROM ubuntu
 
 MAINTAINER whirlwind whirlwind110@163.com
 
-ENV DEBIAN_FRONTEND=noninteractive
-
 ADD start.sh start.sh
+
 RUN echo "starting install lamp..."\
+	&& DEBIAN_FRONTEND=noninteractive \
 	&& sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list \
 	&& apt-get update \
 	&& apt-get install apache2 libapache2-mod-php mysql-server php php-gd php-curl php-mysql php-pdo php-xml -y \
